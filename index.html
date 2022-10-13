@@ -231,6 +231,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/13/hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天风火羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/10/13/hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/" itemprop="url">hexo图片不显示</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-13T17:57:26+08:00">
+                2022-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>版本：Hexo 3以上<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs">官方文档</a></p>
+<ol>
+<li>在根目录下配置文件_config.yml 中有 post_asset_folder:false改为true。这样在建立文件时，Hexo会自动建立一个与文章同名的文件夹，这样就可以把与该文章相关的所有资源（图片）都放到那个文件夹里方便后面引用。</li>
+<li>git bash安装插件：<code>npm install https://github.com/7ym0n/hexo-asset-image --save</code>（这是个修改过的插件，未测试），使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。</li>
+<li>插入图片方式：。<br>其中test.jpg就是你要引用的图片，这里就是test.jpg，后面的This is an test image是图片描述，可以自己修改。</li>
+<li>这样就能成功显示了，测试：hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1381,7 +1529,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
