@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="deep reinforcement learning,Job-shop scheduling problem," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="论文：A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem 时间：2022 关键字：  Flexible job-shop scheduling problem Multi-action deep reinforcement learning Graph neura">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文解读 2022 A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem">
+<meta property="og:url" content="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/index.html">
+<meta property="og:site_name" content="天风火羽">
+<meta property="og:description" content="论文：A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem 时间：2022 关键字：  Flexible job-shop scheduling problem Multi-action deep reinforcement learning Graph neura">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/FJSP%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6.png">
+<meta property="og:image" content="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/MPGN%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/multi-PPO.png">
+<meta property="og:image" content="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/multi-PPO%E7%AE%97%E6%B3%95.png">
+<meta property="article:published_time" content="2022-10-11T09:12:56.000Z">
+<meta property="article:modified_time" content="2022-10-13T09:27:56.348Z">
+<meta property="article:author" content="WangXu">
+<meta property="article:tag" content="deep reinforcement learning">
+<meta property="article:tag" content="Job-shop scheduling problem">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/FJSP%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/10/11/论文解读 2022 A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem/"/>
+
+
+
+
+
+  <title>论文解读 2022 A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem | 天风火羽</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天风火羽</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天风火羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文解读 2022 A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-11T17:12:56+08:00">
+                2022-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%90%E7%AD%B9%E4%BC%98%E5%8C%96/" itemprop="url" rel="index">
+                    <span itemprop="name">运筹优化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>论文：A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem</p>
+<p>时间：2022</p>
+<p>关键字：</p>
+<ul>
+<li>Flexible job-shop scheduling problem</li>
+<li>Multi-action deep reinforcement learning</li>
+<li>Graph neural network</li>
+<li>Markov decision process</li>
+<li>Multi-proximal policy optimization</li>
+</ul>
+<p>代码：<a target="_blank" rel="noopener" href="https://github.com/pengguo318/FJSPDRL">github</a></p>
+<span id="more"></span>
+
+<h1 id="1-论文思路"><a href="#1-论文思路" class="headerlink" title="1.论文思路"></a>1.论文思路</h1><ul>
+<li>研究问题：柔性作业车间调度 flexible Job-shop scheduling problem (FJSP)</li>
+<li>技术：<ul>
+<li>端到端强化学习框架 end-to-end deep reinforcement framework</li>
+<li>图神经网络 graph neural network</li>
+<li>多马尔可夫决策过程  multiple Markov decision process (MMDP)</li>
+<li>多指针图网络 multi-pointer graph networks (MPGN)</li>
+<li>训练算法：多近端策略优化 multi-Proximal Policy Optimization (multi-PPO)</li>
+</ul>
+</li>
+<li>过程：<ul>
+<li>MPGN包含两个encoder-decoder组件，分别训练两个子策略，作业操作策略和作业分配机器策略</li>
+<li>使用图神经网络嵌入局部状态信息</li>
+</ul>
+</li>
+<li>实验结果：<ul>
+<li>适用于2000次操作的现实实例</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-相关研究"><a href="#2-相关研究" class="headerlink" title="2.相关研究"></a>2.相关研究</h1><p>FJSP问题是NP-hard组合优化问题。</p>
+<p>NP-hard组合优化问题求解有两类方法：精确算法和近似算法。精确算法无法在短时间内求解大规模问题，所以在实际应用中，一般使用近似算法。</p>
+<h2 id="2-1-传统近似算法"><a href="#2-1-传统近似算法" class="headerlink" title="2.1 传统近似算法"></a>2.1 传统近似算法</h2><ul>
+<li>群体智能 swarm intelligence (SI)<ul>
+<li>粒子群优化 particle swarm optimization (PSO)</li>
+<li>蚁群算法 ant colony optimization (ACO)</li>
+<li>人工蜂群 artificial bee colony</li>
+</ul>
+</li>
+<li>进化算法 evolutionary algorithms (EAs)<ul>
+<li>遗传算法 genetic algorithm (GA)</li>
+</ul>
+</li>
+</ul>
+<p>缺点是对大规模问题，需要大量迭代，优化计算时间未知，实际情况仍不实用。</p>
+<h2 id="2-2-调度规则"><a href="#2-2-调度规则" class="headerlink" title="2.2 调度规则"></a>2.2 调度规则</h2><p>实际一般使用调度规则，计算的时间复杂度较低，较容易实现。</p>
+<p>缺点是需要专业知识，需要不断尝试，较难得到优化解。</p>
+<h2 id="2-3-强化学习"><a href="#2-3-强化学习" class="headerlink" title="2.3 强化学习"></a>2.3 强化学习</h2><p>近年研究主要关注旅行商问题 traveling salesman problems (TSPs)和车辆路线问题 vehicle routing problems (VRPs)。<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.06128.pdf">Machine learning for combinatorial optimization: a methodological tour d’horizon</a></p>
+<h2 id="2-4-FJSP"><a href="#2-4-FJSP" class="headerlink" title="2.4 FJSP"></a>2.4 FJSP</h2><p>两篇FJSP综述：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://d1wqtxts1xzle7.cloudfront.net/38463907/ITOR_Paper-with-cover-page-v2.pdf?Expires=1665561722&Signature=R5SAnSosSezqZ6LjLZKtC4DFtvtE4NVha9Uhge5WGR0yFyJ4aTtFLhDtq9oMli74SGq8ttdX-q6VejBNDk-uPx5V4xQfzVRmsM4t2lQ-c6oAtavUfOHfkmfkW9ifFz67RNreVaeppO-ySsiHBAiMcPPsVyvbZ13j3ZpgzdwTgotjcSb-74L3isE18pS8Gj-fCkSq7JGQTe-k6RPnXhucKgUwFAjK0qqY8l2okXIPeGOvDKxPFNYFN-IXNpUyBVKiacOropdyFpbx6aTvasTA3Jt3Z4zVfyh2i7nxskiWh7ORynt7FtEoTeY0UVkeJEoIk8RAMbNO-Vbf2mZJ5mWabQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">A research survey: review of flexible job shop scheduling techniques</a></li>
+<li><a target="_blank" rel="noopener" href="https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/iet-cim.2018.0009">Review on flexible job shop scheduling</a></li>
+</ul>
+<p><img src="FJSP%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6.png" alt="FJSP相关研究.png"></p>
+<h1 id="3-具体算法"><a href="#3-具体算法" class="headerlink" title="3.具体算法"></a>3.具体算法</h1><h2 id="3-1-问题设定"><a href="#3-1-问题设定" class="headerlink" title="3.1 问题设定"></a>3.1 问题设定</h2><h3 id="3-1-1-FJSP"><a href="#3-1-1-FJSP" class="headerlink" title="3.1.1 FJSP"></a>3.1.1 FJSP</h3><ol>
+<li>任务：$\mathcal{J}=\left{J_{1}, \cdots ,J_{n}\right}$</li>
+<li>机器：$\mathscr{I}=\left{M_{1}, \cdots, M_{m}\right}$</li>
+<li>操作：$J_{i}$包含特定操作，$\mathscr{O}<em>{i}=$ $\left{O</em>{i 1}, O_{i 2}, \cdots, O_{i n_{i}}\right}$</li>
+<li>操作时间：操作$O_{i j}$在机器$M_{k}$上的操作时间，$p_{i j k}$</li>
+</ol>
+<h3 id="3-1-2-多动作强化学习-multi-action-reinforcement-learning-problem。"><a href="#3-1-2-多动作强化学习-multi-action-reinforcement-learning-problem。" class="headerlink" title="3.1.2 多动作强化学习 multi-action reinforcement learning problem。"></a>3.1.2 多动作强化学习 multi-action reinforcement learning problem。</h3><p>定义为：multiple MDPs (MMDPs)<br><a target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Yang-Yu-115/publication/303487241_Exploring_Multi-Action_Relationship_in_Reinforcement_Learning/links/57453aba08ae9f741b408814/Exploring-Multi-Action-Relationship-in-Reinforcement-Learning.pdf"> Exploring Multi-action Relationship in Reinforcement Learning</a></p>
+<ol>
+<li>States：<ul>
+<li>$s_{t}^{o}$：析取图 disjunctive graph $G_{t}=\left(\mathscr{O}, \mathscr{C} \cup \mathscr{D}<em>{t}^{0}, \mathscr{D}</em>{t}\right)$<ul>
+<li>$\mathscr{D}_{t}^{0} \subseteq \mathscr{D}$ 为已分配的析取弧</li>
+<li>$\mathscr{D}_{t} \subseteq \mathscr{D}$ 为未分配析取弧</li>
+<li>$O_{i j} \in \mathcal{O}$ 节点，含两个特征$\left[L B_{t}\left(O_{i j}\right), I_{t}\left(O_{i j}\right)\right], i \in{1, \cdots$ $, n}, j \in\left{1, \cdots, n_{i}\right}$：<ul>
+<li>$L B_{t}\left(O_{i j}\right)$ 为已分配节点完成时间，或者为未分配节点估计最短完成时间$L B_{t}\left(O_{i, j-1}\right)+\min \left(p_{i j k}, k \in \mathscr{M}_{i j}\right)$</li>
+<li>$I_{t}\left(O_{i j}\right)$ 为一维特征，表示节点是否被分配，分配为1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>$s_{t}^{m}$：含二维特征 $\left[T_{t}\left(M_{k}\right), p_{i j k}\right], k \in{1, \cdots, m}$<ul>
+<li>$T_{t}\left(M_{k}\right)$ 为机器完成时间</li>
+<li>$p_{i j k}$ 如果操作与机器兼容，为处理时间；不兼容，则为平均处理时间$\frac{1}{|K|} \sum_{k} p_{i j k}, k \in K$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Actions：为联合动作<ul>
+<li>$a_{o} \in \mathscr{A}_{o}$ 为操作动作</li>
+<li>$a_{m} \in \mathscr{A}<em>{m} \cdot \mathscr{A}</em>{o}$ 为机器动作</li>
+</ul>
+</li>
+<li>Transition：状态转移</li>
+<li>Reward：优化目标为制造期 makespan<ul>
+<li>即时奖励：两个状态之间的makespan差值。$r\left(s_{t}, a_{0}, a_{m}\right)=-d_{t}$，其中$d_{t}=C\left(s_{t+1}\right)-C\left(s_{t}\right)$<ul>
+<li>以最大节点时间作为某时刻的makespan估计。$C\left(s_{t}\right)=$ $\max <em>{i j}\left{L B</em>{t}\left(O_{i j}\right)\right}$</li>
+</ul>
+</li>
+<li>最终奖励：</li>
+</ul>
+</li>
+<li>Policy：<ul>
+<li>$\pi_{\theta_{o}}\left(a_{o} \mid s\right)$</li>
+<li>$\pi_{\theta_{m}}\left(a_{m} \mid s, a_{o}\right)$</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-2-multipointer-graph-network-MPGN"><a href="#3-2-multipointer-graph-network-MPGN" class="headerlink" title="3.2 multipointer graph network (MPGN)"></a>3.2 multipointer graph network (MPGN)</h2><p><img src="MPGN%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84.png" alt="MPGN网络结构.png"></p>
+<h3 id="3-2-1-操作编码-Job-operation-encoder-graph-embedding"><a href="#3-2-1-操作编码-Job-operation-encoder-graph-embedding" class="headerlink" title="3.2.1 操作编码 Job operation encoder (graph embedding)"></a>3.2.1 操作编码 Job operation encoder (graph embedding)</h3><p>提取析取图中的所有状态信息对于调度性能至关重要。</p>
+<p>使用图同构网络 Graph Isomorphism Network (GIN)编码析取图。<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.00826.pdf">How Powerful are Graph Neural Networks</a></p>
+<p>每层GIN的结构如下：</p>
+<p>$\boldsymbol{h}<em>{v, t}^{(l)}=M L P</em>{\theta_{l}}^{(l)}\left(\left(1+\epsilon^{(l)}\right) \bullet \boldsymbol{h}<em>{v, t}^{(l-1)}+\sum</em>{u \in \mathscr{N}(v)} \boldsymbol{h}_{u, t}^{(l-1)}\right), l \in{1, \cdots, L} ; v, t \in{1, \cdots,|\mathscr{O}|}$</p>
+<p>其中：</p>
+<ul>
+<li>$\boldsymbol{h}_{v, t}^{(l)}$ 为$l$层时间$t$节点$v$的嵌入(embedding)</li>
+<li>$M L P_{\theta_{l}}^{(l)}$ 为$l$层的多层感知机 multi-layer perceptron (MLP)</li>
+<li>$\theta_{l}$ 为$l$层的参数</li>
+<li>$\epsilon^{(l)}$ 为可学习参数</li>
+<li>$\mathscr{N}(v)$ 为节点$v$的邻居</li>
+<li>$l \in{1, \cdots, L}$</li>
+<li>$v \in{1, \cdots,|\mathscr{O}|}$</li>
+</ul>
+<p>析取图未采用全连接模式，采用增量添加弧方案，以减少弧连接，减少节点邻居节点，减少计算量。</p>
+<p>输出：</p>
+<ul>
+<li>每个节点的嵌入 $\boldsymbol{h}_{v, t}^{(L)}$</li>
+<li>图池化向量 $\boldsymbol{h}<em>{\mathscr{G}}^{t}=$ $1 /|\mathscr{O}| \sum</em>{v \in \mathscr{O}} \boldsymbol{h}_{v, t}^{(L)}$</li>
+</ul>
+<h3 id="3-2-2-机器编码-Machine-encoder-node-embedding"><a href="#3-2-2-机器编码-Machine-encoder-node-embedding" class="headerlink" title="3.2.2 机器编码  Machine encoder (node embedding)"></a>3.2.2 机器编码  Machine encoder (node embedding)</h3><p>机器状态不存在图结构，每个节点记录基本信息，相互之间无连接。采用全连接层进行编码。</p>
+<p>输出：</p>
+<ul>
+<li>每节点嵌入向量 $\boldsymbol{h}_{k}^{t}$</li>
+<li>池化向量 $\boldsymbol{u}^{t}$</li>
+</ul>
+<h3 id="3-2-3-解码-Decoders-action-selection"><a href="#3-2-3-解码-Decoders-action-selection" class="headerlink" title="3.2.3 解码  Decoders (action selection)"></a>3.2.3 解码  Decoders (action selection)</h3><p>调度由各个时间点顺序决策构成。<br>$t \in{1, \cdots,|O|}$</p>
+<ul>
+<li>$|O|$ 为所有操作数量</li>
+</ul>
+<p>使用两个MLP层分别解码任务操作和机器动作。</p>
+<ul>
+<li>首先解码出动作的概率分布</li>
+<li>使用掩码<a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2018/file/9fb4651c05b2ed70fba5afe0b039a550-Paper.pdf">Reinforcement learning for solving the vehicle routing problem</a>，以避免以下两种情况，具体的操作为设置概率分布为$-\infty$：<ul>
+<li>调度已分配的任务，或者违反约束的任务</li>
+<li>选择不可执行的机器</li>
+</ul>
+</li>
+<li>使用softmax进行标准化：<ul>
+<li>$p_{i}\left(a_{t}^{o}\right)=\frac{e^{c_{t, i}^{o}}}{\sum_{v} e^{c_{t, v}^{o}}}$</li>
+<li>$p_{j}\left(a_{t}^{m}\right)=\frac{e^{c_{t, j}^{m}}}{\sum_{k} e^{c_{t, k}^{m}}}$</li>
+</ul>
+</li>
+<li>最后，使用抽样或者贪心解码策略预测动作</li>
+</ul>
+<h2 id="3-3-多近端策略优化-Multi-Proximal-policy-optimization"><a href="#3-3-多近端策略优化-Multi-Proximal-policy-optimization" class="headerlink" title="3.3 多近端策略优化 Multi-Proximal policy optimization"></a>3.3 多近端策略优化 Multi-Proximal policy optimization</h2><p><img src="multi-PPO.png" alt="multi-PPO.png"></p>
+<p>使用multiple actor-critic architecture和PPO<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1707.06347.pdf">Proximal policy optimization algorithms</a>进行策略优化。</p>
+<p>PPO算法只含有一个actor，本文multi-PPO架构含有两个actor网络。</p>
+<h3 id="3-3-1-critic-network"><a href="#3-3-1-critic-network" class="headerlink" title="3.3.1 critic network"></a>3.3.1 critic network</h3><p>构建critic network来学习状态-价值函数(state-value)的近似$\widehat{v}<em>{\phi}\left(s</em>{t}\right)$。</p>
+<p>$\widehat{v}<em>{\phi}\left(s</em>{t}\right)$用来计算降方差优势函数(variance-reduced advantage function)的估计$\widehat{A}$。<br>$\widehat{A}<em>{t}=\sum</em>{t^{\prime}=t}^{T} \gamma^{t^{\prime}} r_{t^{\prime}}-\widehat{v}<em>{\phi}\left(s</em>{t}\right)$</p>
+<ul>
+<li>$\gamma$ 为折扣系数</li>
+<li>$T$ 小于episode($|\mathcal{O}|$)</li>
+</ul>
+<h3 id="3-3-2-训练actor-network"><a href="#3-3-2-训练actor-network" class="headerlink" title="3.3.2 训练actor network"></a>3.3.2 训练actor network</h3><ul>
+<li>clipped surrogate objective: $L_{\mathrm{CLIP}}^{h}\left(\theta_{h}\right)=\widehat{\mathbb{E}}<em>{t}\left[\min \left{\delta</em>{t}^{h}\left(\theta_{h}\right) \widehat{A}<em>{t}, \operatorname{clip}\left(\delta</em>{t}^{h}\left(\theta_{h}\right), 1-\epsilon, 1+\epsilon\right) \widehat{A}_{t}\right}\right]$</li>
+<li>entropy objective: $L_{E}^{h}\left(\theta_{h}\right)=\widehat{\mathbb{E}}<em>{t}\left[\operatorname{Entropy}\left(\pi</em>{\theta_{h}}\left(a_{t}^{h} \mid s_{t}\right)\right)\right]$</li>
+<li>裁剪系数:$\epsilon$</li>
+<li>actor:$h(h \in{o, m})$</li>
+<li>更新之后和更新之前的概率比probability ratio: $\delta_{t}^{h}\left(\theta_{h}\right)$</li>
+<li>裁剪系数:$\delta_{t}^{h}\left(\theta_{h}\right) = \frac{\pi_h\left(a_t^h \mid s_t\right)}{\pi_{\theta_{h \text { old }}}\left(a_t^h \mid s_t\right)} $</li>
+</ul>
+<p>训练actor network，使$L\left(\theta_{h}\right)=c_{p} L_{\text {CLIP }}^{h}\left(\theta_{h}\right)+c_{e} L_{E}^{h}\left(\theta_{h}\right)$最大化。</p>
+<ul>
+<li>$c_{p}=1$裁剪系数超参数</li>
+<li>$c_{e}=0.01$熵稀疏超参数</li>
+</ul>
+<h3 id="3-3-3-更新critic-network"><a href="#3-3-3-更新critic-network" class="headerlink" title="3.3.3 更新critic network"></a>3.3.3 更新critic network</h3><p>最小化均方误差Mean Squared Error (MSE)<br>$L_{\mathrm{MSE}}(\phi)=\widehat{\mathbb{E}}<em>{t}\left[\operatorname{MSE}\left(r</em>{t}, \widehat{v}<em>{\phi}\left(s</em>{t}\right)\right)\right]$</p>
+<ul>
+<li>$r_{t}$是时刻$t$的奖励</li>
+</ul>
+<p><img src="multi-PPO%E7%AE%97%E6%B3%95.png" alt="multi-PPO算法.png"></p>
+<ul>
+<li>给定mini-batch大小B，FJSP从均匀分布中生成B个实例，用于训练两个参与者网络。</li>
+<li>两个行为参与者收集经验元组的，直到所有操作都被调度。</li>
+<li>两个训练参与者与环境交互，通过收集到的经验元组计算概率比。</li>
+<li>计算汇总的作业操作参与者、机器参与者和评论家损失函数。</li>
+<li>基于计算的损失，multi-PPO分别对两个参与者和评论家网络执行更新$E_s$次。</li>
+<li>将两个训练actor的更新参数复制到两个行为actor。</li>
+<li>一旦整个训练过程执行$E_t$次，multi-PPO输出两个actor的参数网络。</li>
+</ul>
+<p>该multi-PPO架构可扩展到更多层动作空间的组合优化问题。</p>
+<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4.实验结果"></a>4.实验结果</h1><h2 id="4-1-数据集"><a href="#4-1-数据集" class="headerlink" title="4.1 数据集"></a>4.1 数据集</h2><ul>
+<li>训练集：12800个实例</li>
+<li>验证集：128个实例</li>
+<li>测试集：128个实例</li>
+</ul>
+<p>MPGN使用中小规模随机生成的实例进行训练和验证($6 \times 6,10 \times 10,15 \times 15,20 \times 10,20 \times 20$, and $30 \times 20$)。</p>
+<p>在更大的随机生成实例上进行测试($50 \times 20$ and $100 \times 20$)，以减少训练时间并验证泛化性。</p>
+<p>FJSP基准测试实例：</p>
+<ul>
+<li>Hurink’s instances</li>
+<li>Behnke’s instances</li>
+</ul>
+<h2 id="4-2-超参数"><a href="#4-2-超参数" class="headerlink" title="4.2 超参数"></a>4.2 超参数</h2><ul>
+<li>每批包括：$32,16,16,16,8,4$实例，对应尺寸 $6 \times 6,10 \times 10,15 \times 15,20 \times 10,20 \times 20,30 \times 20$</li>
+<li>GIN的L=2,由$\pi_{\theta_{o}}$和$\widehat{v}_{\phi}$共享</li>
+<li>每个GIN层，MLP含2个隐藏层和128个隐藏维度</li>
+<li>任务操作解码MLP、机器解码MLP、状态函数MLP含2个隐藏层和128个隐藏维度</li>
+<li>裁剪系数coefficient for clipping：0.2</li>
+<li>策略损失policy loss：2</li>
+<li>价值函数value function：1</li>
+<li>熵entropy：0.01</li>
+<li>Adam optimizer</li>
+<li>学习率$l r=1 \times$ $10^{-3}$</li>
+</ul>
+<h2 id="4-3-基线"><a href="#4-3-基线" class="headerlink" title="4.3 基线"></a>4.3 基线</h2><p>挑选规则，组成8条复合规则：</p>
+<ul>
+<li>作业排序调度规则：<ul>
+<li>先进先出FIFO</li>
+<li>最多剩余操作数MOPNR</li>
+<li>最少剩余工作LWKR</li>
+<li>最多剩余工作MWKR</li>
+</ul>
+</li>
+<li>机器分配调度规则：<ul>
+<li>最短处理时间SPT</li>
+<li>最早结束时间EET</li>
+</ul>
+</li>
+</ul>
+<p>使用Gurobi计算最优解，时间限制为3600s。</p>
+<h2 id="4-4-解码策略"><a href="#4-4-解码策略" class="headerlink" title="4.4 解码策略"></a>4.4 解码策略</h2><ul>
+<li>随机抽样：在每个解码时间步中，随机策略根据概率分布对要选择的节点进行抽样，以构造一个有效的解。</li>
+<li>贪婪解码：在每个解码时间步中贪婪地选择概率最高的节点。</li>
+</ul>
+<p>训练过程使用随机抽样有助于探测环境。测试时使用贪婪解码。</p>
+<h2 id="4-5-测试结果"><a href="#4-5-测试结果" class="headerlink" title="4.5 测试结果"></a>4.5 测试结果</h2><ul>
+<li>解优于基线</li>
+<li>大规模实例更稳定</li>
+<li>时间性能稍差于基线</li>
+<li>泛化性能较好单因素方差分析，统计上优于基线</li>
+</ul>
+<h2 id="4-6-基准测试结果"><a href="#4-6-基准测试结果" class="headerlink" title="4.6 基准测试结果"></a>4.6 基准测试结果</h2><p>对Hurink和Behnke实例进行实验，验证随机实例到实际实例的泛化性能。</p>
+<p>与元启发方法进行比较：</p>
+<ul>
+<li>遗传算法RGA</li>
+<li>两阶段遗传算法2SGA</li>
+</ul>
+<p>解大部分稍差于两阶段遗传算法，但是计算时间优势很大，遗传算法计算时间1-30min，本文方法0.07-0.41s。</p>
+<p>对于更大实例的Behnke实例进行实验。</p>
+<p>性能较优，且不同测试集上性能比规则方法稳定。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/deep-reinforcement-learning/" rel="tag"># deep reinforcement learning</a>
+          
+            <a href="/tags/Job-shop-scheduling-problem/" rel="tag"># Job-shop scheduling problem</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/09/06/%E8%A1%8C%E6%B5%8B%E6%8A%80%E5%B7%A7/" rel="next" title="行测技巧">
+                <i class="fa fa-chevron-left"></i> 行测技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%AE%BA%E6%96%87%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">1.论文思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6"><span class="nav-number">2.</span> <span class="nav-text">2.相关研究</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E4%BC%A0%E7%BB%9F%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 传统近似算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%B0%83%E5%BA%A6%E8%A7%84%E5%88%99"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 调度规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 强化学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-FJSP"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 FJSP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%85%B7%E4%BD%93%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">3.具体算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E9%97%AE%E9%A2%98%E8%AE%BE%E5%AE%9A"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 问题设定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-FJSP"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 FJSP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E5%A4%9A%E5%8A%A8%E4%BD%9C%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-multi-action-reinforcement-learning-problem%E3%80%82"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 多动作强化学习 multi-action reinforcement learning problem。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-multipointer-graph-network-MPGN"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 multipointer graph network (MPGN)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E6%93%8D%E4%BD%9C%E7%BC%96%E7%A0%81-Job-operation-encoder-graph-embedding"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 操作编码 Job operation encoder (graph embedding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E6%9C%BA%E5%99%A8%E7%BC%96%E7%A0%81-Machine-encoder-node-embedding"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 机器编码  Machine encoder (node embedding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E8%A7%A3%E7%A0%81-Decoders-action-selection"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 解码  Decoders (action selection)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E5%A4%9A%E8%BF%91%E7%AB%AF%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96-Multi-Proximal-policy-optimization"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 多近端策略优化 Multi-Proximal policy optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-critic-network"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 critic network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-%E8%AE%AD%E7%BB%83actor-network"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 训练actor network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-%E6%9B%B4%E6%96%B0critic-network"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 更新critic network</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">4.实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E8%B6%85%E5%8F%82%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 超参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E5%9F%BA%E7%BA%BF"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 基线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E8%A7%A3%E7%A0%81%E7%AD%96%E7%95%A5"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 解码策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 测试结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 基准测试结果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WangXu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
