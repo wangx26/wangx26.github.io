@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -82,10 +82,10 @@
 <meta name="description" content="学到老、活到老">
 <meta property="og:type" content="website">
 <meta property="og:title" content="天风火羽">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="//index.html">
 <meta property="og:site_name" content="天风火羽">
 <meta property="og:description" content="学到老、活到老">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale">
 <meta property="article:author" content="WangXu">
 <meta name="twitter:card" content="summary">
 
@@ -95,7 +95,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -103,7 +103,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com///"/>
 
 
 
@@ -133,9 +133,9 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -180,21 +180,41 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -231,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/13/hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/20bb70d8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -250,7 +270,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/10/13/hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/" itemprop="url">hexo图片不显示</a></h1>
+                <a class="post-title-link" href="/posts/20bb70d8/" itemprop="url">hexo相关问题与优化</a></h1>
         
 
         <div class="post-meta">
@@ -260,10 +280,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-13T17:57:26+08:00">
-                2022-10-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-20T10:28:27+08:00">
+                2022-10-20
               </time>
             
 
@@ -281,7 +301,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -324,12 +344,474 @@
       
         
           
-            <p>版本：Hexo 3以上<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs">官方文档</a></p>
-<ol>
-<li>在根目录下配置文件_config.yml 中有 post_asset_folder:false改为true。这样在建立文件时，Hexo会自动建立一个与文章同名的文件夹，这样就可以把与该文章相关的所有资源（图片）都放到那个文件夹里方便后面引用。</li>
-<li>git bash安装插件：<code>npm install https://github.com/7ym0n/hexo-asset-image --save</code>（这是个修改过的插件，未测试），使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。</li>
-<li>插入图片方式：。<br>其中test.jpg就是你要引用的图片，这里就是test.jpg，后面的This is an test image是图片描述，可以自己修改。</li>
-<li>这样就能成功显示了，测试：hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</li>
+            <p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32767041/article/details/103285147">Hexo
+搭建个人博客（完结）Hexo 相关问题和优化</a></p>
+<p>关于Hexo,Next主题的‘下一页’、‘上一页’按钮错误显示为html代码
+<i class="fa fa-angle-right"></i>的解决方法: <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45748734/article/details/106042522">参考</a></p>
+<p>Travis-CI自动部署 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Xiong_IT/article/details/78675874">Hexo遇上Travis-CI：可能是最通俗易懂的自动发布博客图文教程</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/5b44d946/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天风火羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/5b44d946/" itemprop="url">hexo不同电脑迁移</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-18T21:25:22+08:00">
+                2022-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37286282/article/details/89496837">参考</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/5b44d946/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/7d8c7513/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天风火羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/7d8c7513/" itemprop="url">论文解读 2022 Discovering faster matrix multiplication algorithms with reinforcement learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-18T19:41:39+08:00">
+                2022-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">论文解读</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">强化学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>论文：Discovering faster matrix multiplication algorithms with
+reinforcement learning</p>
+<p>时间：2022</p>
+<p>关键字：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/7d8c7513/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/68ed8676/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天风火羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/68ed8676/" itemprop="url">hexo图片不显示</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-13T17:57:26+08:00">
+                2022-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>版本：Hexo 3以上 <a
+target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs">官方文档</a></p>
+<ol type="1">
+<li>在根目录下配置文件_config.yml 中有
+post_asset_folder:false改为true。这样在建立文件时，Hexo会自动建立一个与文章同名的文件夹，这样就可以把与该文章相关的所有资源（图片）都放到那个文件夹里方便后面引用。</li>
+<li>git
+bash安装插件：<code>npm install https://github.com/7ym0n/hexo-asset-image --save</code>（这是个修改过的插件，未测试），使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。</li>
+<li>插入图片方式：。
+其中test.jpg就是你要引用的图片，这里就是test.jpg，后面的This is an test
+image是图片描述，可以自己修改。</li>
+<li>这样就能成功显示了，测试：hexo cl &amp;&amp; hexo g &amp;&amp; hexo
+d</li>
 </ol>
 
           
@@ -379,7 +861,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/9c3f2581/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -398,7 +880,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/" itemprop="url">论文解读 2022 A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem</a></h1>
+                <a class="post-title-link" href="/posts/9c3f2581/" itemprop="url">论文解读 2022 A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem</a></h1>
         
 
         <div class="post-meta">
@@ -408,9 +890,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-11T17:12:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-11T17:12:56+08:00">
                 2022-10-11
               </time>
             
@@ -429,11 +911,22 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BF%90%E7%AD%B9%E4%BC%98%E5%8C%96/" itemprop="url" rel="index">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">论文解读</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/%E8%BF%90%E7%AD%B9%E4%BC%98%E5%8C%96/" itemprop="url" rel="index">
                     <span itemprop="name">运筹优化</span>
                   </a>
                 </span>
@@ -471,7 +964,8 @@
 
       
         
-          <p>论文：A multi-action deep reinforcement learning framework for flexible Job-shop scheduling problem</p>
+          <p>论文：A multi-action deep reinforcement learning framework for
+flexible Job-shop scheduling problem</p>
 <p>时间：2022</p>
 <p>关键字：</p>
 <ul>
@@ -484,8 +978,8 @@
 <p>代码：<a target="_blank" rel="noopener" href="https://github.com/pengguo318/FJSPDRL">github</a></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2022/10/11/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%202022%20A%20multi-action%20deep%20reinforcement%20learning%20framework%20for%20flexible%20Job-shop%20scheduling%20problem/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn" href="/posts/9c3f2581/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -535,7 +1029,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/06/%E8%A1%8C%E6%B5%8B%E6%8A%80%E5%B7%A7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/3ea05b3c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -554,7 +1048,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/09/06/%E8%A1%8C%E6%B5%8B%E6%8A%80%E5%B7%A7/" itemprop="url">行测技巧</a></h1>
+                <a class="post-title-link" href="/posts/3ea05b3c/" itemprop="url">行测技巧</a></h1>
         
 
         <div class="post-meta">
@@ -564,9 +1058,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-06T14:36:51+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-06T14:36:51+08:00">
                 2021-09-06
               </time>
             
@@ -577,6 +1071,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8B%9B%E8%81%98/" itemprop="url" rel="index">
+                    <span itemprop="name">招聘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -605,33 +1121,14 @@
 
       
         
-          
-            <h1 id="1-判断推理"><a href="#1-判断推理" class="headerlink" title="1.判断推理"></a>1.判断推理</h1><h2 id="1-1-图形推理"><a href="#1-1-图形推理" class="headerlink" title="1.1 图形推理"></a>1.1 图形推理</h2><img src="../images/图形推理考题框架.png"/>
-
-<h3 id="平面图形"><a href="#平面图形" class="headerlink" title="平面图形"></a>平面图形</h3><p><a target="_blank" rel="noopener" href="https://www.offcn.com/xingce/2021/0830/77682.html">平面图形</a></p>
-<ul>
-<li>若图形整体相似，图形构成元素相同的，考虑移动、转动;</li>
-<li>若图形构成元素相似的，但局部有所不同，则考叠加(直接叠加、去同存异、去异存同、规律叠加);</li>
-<li>若图形相异，则先考虑图形的几何特性(对称性、直曲性、封闭开放性)和图形的相对位置，后考虑数量关系(面、线、点、角)。</li>
-</ul>
-<h3 id="黑白块"><a href="#黑白块" class="headerlink" title="黑白块"></a>黑白块</h3><p><a target="_blank" rel="noopener" href="https://www.offcn.com/xingce/2021/0902/77733.html">黑白块</a></p>
-<ul>
-<li>位置移动</li>
-<li>规律叠加</li>
-<li>黑白块的个数&amp;部分数</li>
-<li>面积占比</li>
-</ul>
-<h3 id="汉字"><a href="#汉字" class="headerlink" title="汉字"></a>汉字</h3><p><a target="_blank" rel="noopener" href="https://www.offcn.com/xingce/2021/0818/77611.html">汉字</a></p>
-<ul>
-<li>元素遍历(同一遍历)</li>
-<li>曲直性</li>
-<li>封闭区域数</li>
-<li>汉字结构</li>
-<li>汉字笔画数</li>
-<li>部分数</li>
-</ul>
-
-          
+          <p>待完善
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/3ea05b3c/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -678,7 +1175,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/26/%E4%BA%91GPU%E5%B9%B3%E5%8F%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/b1f94453/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -697,7 +1194,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/08/26/%E4%BA%91GPU%E5%B9%B3%E5%8F%B0/" itemprop="url">云GPU平台</a></h1>
+                <a class="post-title-link" href="/posts/b1f94453/" itemprop="url">云GPU平台</a></h1>
         
 
         <div class="post-meta">
@@ -707,9 +1204,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-26T14:18:39+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-26T14:18:39+08:00">
                 2021-08-26
               </time>
             
@@ -720,6 +1217,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/" itemprop="url" rel="index">
+                    <span itemprop="name">网络资源</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -749,8 +1268,10 @@
       
         
           
-            <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386821676">GPU云服务器平台对比！哪家最值得推荐？</a></p>
-<p><a target="_blank" rel="noopener" href="https://gpushare.com/">恒源智享云</a><br><a target="_blank" rel="noopener" href="https://featurize.cn/">Featurize</a></p>
+            <p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386821676">GPU云服务器平台对比！哪家最值得推荐？</a></p>
+<p><a target="_blank" rel="noopener" href="https://gpushare.com/">恒源智享云</a> <a
+target="_blank" rel="noopener" href="https://featurize.cn/">Featurize</a></p>
 
           
         
@@ -799,7 +1320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/12/hexo-%E6%8A%A5%E9%94%99-Cannot-find-module-hexo-from/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/5b52d467/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -818,7 +1339,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/08/12/hexo-%E6%8A%A5%E9%94%99-Cannot-find-module-hexo-from/" itemprop="url">hexo 报错 Cannot find module 'hexo' from ...</a></h1>
+                <a class="post-title-link" href="/posts/5b52d467/" itemprop="url">校招基础知识</a></h1>
         
 
         <div class="post-meta">
@@ -828,9 +1349,158 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-12T15:50:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-17T10:55:32+08:00">
+                2021-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8B%9B%E8%81%98/" itemprop="url" rel="index">
+                    <span itemprop="name">招聘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="基础知识">基础知识</h1>
+<p><a
+target="_blank" rel="noopener" href="https://www.nowcoder.com/tutorial/93/f982cd252694499181bcf1bb83780cad">牛客c++</a>
+<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/656779">参考归纳</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/5b52d467/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/6ce63535/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天风火羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/6ce63535/" itemprop="url">hexo 报错 Cannot find module 'hexo' from ...</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-12T15:50:57+08:00">
                 2021-08-12
               </time>
             
@@ -849,7 +1519,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -891,14 +1561,15 @@
 
       
         
-          
-            <p><a target="_blank" rel="noopener" href="https://shizhonghai.github.io/2019/12/12/hexo-error-DTraceProviderBindings/">参考链接</a></p>
-<h1 id="hexo-报错"><a href="#hexo-报错" class="headerlink" title="hexo 报错"></a>hexo 报错</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Cannot find module &#x27;hexo&#x27; from ...</span><br></pre></td></tr></table></figure>
-<h1 id="解决办法一"><a href="#解决办法一" class="headerlink" title="解决办法一"></a>解决办法一</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo --no-optional</span><br></pre></td></tr></table></figure>
-<p>安装后，问题解决</p>
-<h1 id="解决办法二（未验证）"><a href="#解决办法二（未验证）" class="headerlink" title="解决办法二（未验证）"></a>解决办法二（未验证）</h1><p>也有人的解决办法是重装 hexo-cli，如果命令行报没权限错误，请记得前面加 sudo :</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-          
+          <p><a
+target="_blank" rel="noopener" href="https://shizhonghai.github.io/2019/12/12/hexo-error-DTraceProviderBindings/">参考链接</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/6ce63535/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -945,7 +1616,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/12/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/882f5f95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -964,7 +1635,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/08/12/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE/" itemprop="url">hexo添加分类和标签</a></h1>
+                <a class="post-title-link" href="/posts/882f5f95/" itemprop="url">hexo添加分类和标签</a></h1>
         
 
         <div class="post-meta">
@@ -974,9 +1645,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-12T15:42:19+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-12T15:42:19+08:00">
                 2021-08-12
               </time>
             
@@ -995,7 +1666,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1037,419 +1708,15 @@
 
       
         
-          <p><a target="_blank" rel="noopener" href="https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/">参考链接</a></p>
-<h1 id="1-创建“分类”选项"><a href="#1-创建“分类”选项" class="headerlink" title="1. 创建“分类”选项"></a>1. 创建“分类”选项</h1><h2 id="1-1-生成“分类”页并添加tpye属性"><a href="#1-1-生成“分类”页并添加tpye属性" class="headerlink" title="1.1 生成“分类”页并添加tpye属性"></a>1.1 生成“分类”页并添加tpye属性</h2><p>打开命令行，进入博客所在文件夹。执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-<p>成功后会提示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/source/categories/index.md</span><br></pre></td></tr></table></figure>
-<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>添加type: “categories”到内容中，添加后是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>保存并关闭文件。</p>
+          <p><a
+target="_blank" rel="noopener" href="https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/">参考链接</a></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/08/12/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn" href="/posts/882f5f95/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/12/python%E8%B0%83%E7%94%A8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天风火羽">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/07/12/python%E8%B0%83%E7%94%A8C/" itemprop="url">python调用C++</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-12T10:55:09+08:00">
-                2021-07-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="1-方法一-使用ctypes加载so"><a href="#1-方法一-使用ctypes加载so" class="headerlink" title="1. 方法一 使用ctypes加载so"></a>1. 方法一 使用ctypes加载so</h1><p>调用Python的自有模块ctypes，其中<code>cdll = &lt;ctypes.LibraryLoader object&gt;</code>是一个库加载器对象，调用<code>cdll.LoadLibrary</code>便可调用C++的so库。</p>
-<p>这里使用C++来编译so库，需要注意一点，C++中的函数需要<code>extern &quot;C&quot;</code>来转成C语法编译，因为C++函数是可以重载的，使用g++编译函数会附上额外信息而不是函数名本身，比方<code>void print(int a);</code>使用g++编译会生成<code>print_int</code>之类的，这样<code>cdll.LoadLibrary</code>的时候会找不到。所以，我们需要让编译器使用C方法编译，这样才能达到目的。这也是值得我们请注意的一点。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/07/12/python%E8%B0%83%E7%94%A8C/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/12/hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天风火羽">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/07/12/hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="url">hexo基本操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-12T10:12:10+08:00">
-                2021-07-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">参考 https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<h1 id="1-hexo简介"><a href="#1-hexo简介" class="headerlink" title="1. hexo简介"></a>1. hexo简介</h1><p>Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
-<p>官网： <a target="_blank" rel="noopener" href="http://hexo.io/">http://hexo.io</a></p>
-<p>github: <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">https://github.com/hexojs/hexo</a></p>
-<h1 id="2-原理"><a href="#2-原理" class="headerlink" title="2. 原理"></a>2. 原理</h1><p>由于github pages存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，相信谁都会疯掉，所以hexo所做的就是将这些md文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到github。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/07/12/hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/15/new-beginning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天风火羽">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/15/new-beginning/" itemprop="url">new beginning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-15T10:20:08+08:00">
-                2020-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="起点记录："><a href="#起点记录：" class="headerlink" title="起点记录："></a>起点记录：</h2><p>折腾两天，终于成功搞定这个页面。</p>
-<p>作一个技术学习的记录，最近在折腾ros、c++，有关高清地图、apollo的routing、qt等技术。</p>
-
-          
         
       
     </div>
@@ -1486,6 +1753,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/%5C/page/2/">2</a><a class="extend next" rel="next" href="/%5C/page/2/">下一页</a>
+  </nav>
+
 
 
           </div>
@@ -1527,10 +1798,10 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -1540,8 +1811,8 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
@@ -1551,8 +1822,8 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
@@ -1598,7 +1869,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1606,7 +1877,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -1706,6 +1977,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
   
 
   
@@ -1764,6 +2042,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
